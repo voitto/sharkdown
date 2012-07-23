@@ -8,4 +8,4 @@ License
 ====================
 MIT
 
-Sharkdown is a 50-line PHP/Markdown wiki that doesn't use a database! Just change the permissions on the 'pages' folder so that you can upload pages.
+Sharkdown is a 50-line PHP/Markdown wiki that doesn't use a database! Just change the permissions on the 'pages' folder so that you can upload pages, and put your IP where it says 'your-ip-here'.
