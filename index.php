@@ -2,7 +2,13 @@
 
 if (isset($_FILES['md']['tmp_name'])) {
   // save uploaded markdown file
-  move_uploaded_file( $_FILES['md']['tmp_name'], "pages/".$_FILES['md']['name'] );
+  $allowed = array(
+    'your-ip-here'
+  );
+  if (!in_array($_SERVER['REMOTE_ADDR'])) {
+    echo "Sorry, you're not allowed to upload from ".$_SERVER['REMOTE_ADDR'];
+    exit;
+  }  move_uploaded_file( $_FILES['md']['tmp_name'], "pages/".$_FILES['md']['name'] );
   // redirect the user
   header('Location: http://wiki.hashtag.ly');
   exit;
