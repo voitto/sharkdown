@@ -5,10 +5,11 @@ if (isset($_FILES['md']['tmp_name'])) {
   $allowed = array(
     'your-ip-here'
   );
-  if (!in_array($_SERVER['REMOTE_ADDR'])) {
+  if (!in_array($_SERVER['REMOTE_ADDR'],$allowed)) {
     echo "Sorry, you're not allowed to upload from ".$_SERVER['REMOTE_ADDR'];
     exit;
-  }  move_uploaded_file( $_FILES['md']['tmp_name'], "pages/".$_FILES['md']['name'] );
+  }
+  move_uploaded_file( $_FILES['md']['tmp_name'], "pages/".$_FILES['md']['name'] );
   // redirect the user
   header('Location: http://wiki.hashtag.ly');
   exit;
